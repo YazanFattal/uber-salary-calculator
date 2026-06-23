@@ -11,10 +11,19 @@ function calculateSalary() {
     return;
   }
 
+  const km = parseFloat(document.getElementById("km").value) || 0;
+  const tips = parseFloat(document.getElementById("tips").value) || 0;
+  const kmPay = km * 0.20;
   const basePay = hours * hourlyWage;
   const bonus = getBonus(hours, orders, startTime);
   const dailyTotal = basePay + bonus;
-  const totalPay = dailyTotal * days;
+  const totalPay = (dailyTotal + kmPay + tips) * days;
+
+  document.getElementById("kmPay").textContent =
+  `€${kmPay.toFixed(2)}`;
+
+  document.getElementById("tipsPay").textContent =
+  `€${tips.toFixed(2)}`;
 
   document.getElementById("basePay").textContent = `€${basePay.toFixed(2)}`;
   document.getElementById("bonus").textContent = `€${bonus.toFixed(2)}`;
