@@ -20,6 +20,9 @@
       <label>Completed Orders</label>
       <input type="number" id="orders" placeholder="Example: 10">
 
+      <label>Days Worked</label>
+      <input type="number" id="days" placeholder="Example: 3" min="1" value="1">
+
       <label>Start Time</label>
       <select id="startTime">
         <option value="later">15:30 or later</option>
@@ -33,7 +36,9 @@
       <h2>Expected Earnings</h2>
       <p>Base Pay: <span id="basePay">€0.00</span></p>
       <p>Bonus: <span id="bonus">€0.00</span></p>
+      <p>Days Worked: <span id="daysResult">1</span></p>
       <p class="total">Total: <span id="totalPay">€0.00</span></p>
+
     </div>
   </div>
 

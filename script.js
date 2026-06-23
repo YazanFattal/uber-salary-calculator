@@ -3,19 +3,22 @@ const hourlyWage = 14.70;
 function calculateSalary() {
   const hours = parseFloat(document.getElementById("hours").value);
   const orders = parseInt(document.getElementById("orders").value);
+  const days = parseInt(document.getElementById("days").value);
   const startTime = document.getElementById("startTime").value;
 
-  if (isNaN(hours) || isNaN(orders)) {
-    alert("Please enter your hours and completed orders.");
+  if (isNaN(hours) || isNaN(orders) || isNaN(days)) {
+    alert("Please enter hours, completed orders, and days worked.");
     return;
   }
 
   const basePay = hours * hourlyWage;
   const bonus = getBonus(hours, orders, startTime);
-  const totalPay = basePay + bonus;
+  const dailyTotal = basePay + bonus;
+  const totalPay = dailyTotal * days;
 
   document.getElementById("basePay").textContent = `€${basePay.toFixed(2)}`;
   document.getElementById("bonus").textContent = `€${bonus.toFixed(2)}`;
+  document.getElementById("daysResult").textContent = days;
   document.getElementById("totalPay").textContent = `€${totalPay.toFixed(2)}`;
 }
 
